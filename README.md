@@ -1,1 +1,3 @@
 # projetakipsistemi
+Php tabanlı iş proje takip sistemi. 
+Geliştirilmeye devam edilmekte... 
