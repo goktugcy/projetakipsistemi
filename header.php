@@ -8,6 +8,11 @@ $ayarsor->execute();
 $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
 
 ?>
+ <?php
+				 $dogrulama=$db->prepare("SELECT * FROM recaptcha ");
+				$dogrulama->execute();
+				$dogrulamacek=$dogrulama->fetch(PDO::FETCH_ASSOC);
+					?>
 <!DOCTYPE HTML>
 <!--
 	Stellar by HTML5 UP
@@ -21,8 +26,7 @@ $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
      	<meta http-equiv="X-UA-Compatible" content="ie=edge">
     	<meta http-equiv="Content-Language" content="tr" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		
+		<link rel="stylesheet" href="assets/css/main.css" />			
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     	

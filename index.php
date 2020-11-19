@@ -7,9 +7,8 @@
 				 
 					<nav id="nav">
 						<ul>
-							<li><a href="#<?php echo $hakcek['hak_baslik']?>" class="active"><?php echo $hakcek['hak_baslik']?></a></li>
-							<li><a href="#first">First Section</a></li>
-							<li><a href="#cta">Get Started</a></li>
+							<li><a href="#hakkimizda"><?php echo $hakcek['hak_baslik']?></a></li>
+							<li><a href="#iletisim">İletişim</a></li>
 						</ul>
 					</nav>
 			  
@@ -17,7 +16,7 @@
 					<div id="main">
 
 						<!-- Introduction -->
-							<section id="<?php echo $hakcek['hak_baslik']?>" class="main">
+							<section id="hakkimizda" class="main">
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
@@ -32,38 +31,10 @@
 								</div>
 							</section>
 
-						<!-- First Section -->
-							<section id="first" class="main special">
-								<header class="major">
-									<h2>Magna veroeros</h2>
-								</header>
-								<ul class="features">
-									<li>
-										<span class="icon solid major style1 fa-code"></span>
-										<h3>Ipsum consequat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-									</li>
-									<li>
-										<span class="icon major style3 fa-copy"></span>
-										<h3>Amed sed feugiat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-									</li>
-									<li>
-										<span class="icon major style5 fa-gem"></span>
-										<h3>Dolor nullam</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-									</li>
-								</ul>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
-							</section>
-
+					
 						
 						<!-- Get Started -->
-							<section id="cta" class="main special">
+							<section id="iletisim" class="main special">
 								<header class="major">
 									<h2>İletişim</h2>
 								
@@ -92,7 +63,7 @@
 														<li><input type="submit"  name="ekle" placeholder="Gönder" class="primary"></li>
 													</ul>
 												</div>
-											</div>
+												
 										</form>
 								</footer>
 							</section>
@@ -100,10 +71,26 @@
 					</div>
 <?php include 'footer.php'?>
 
-<script type="text/javascript">
-  $('#islemsonucu').modal('show');
-  setTimeout(function() {
-    $('#islemsonucu').modal('hide');
-  }, 3000);
-</script>
+<?php if (@$_GET['durum']=="no")  {?>
+  <script>
+    Swal.fire({
+      type: 'error',
+      title: 'İşlem Başarısız',
+      text: 'Lütfen Tekrar Deneyin',
+      showConfirmButton: true,
+      confirmButtonText: 'Kapat'
+    })
+  </script>
+<?php } ?>
 
+<?php if (@$_GET['durum']=="ok")  {?>
+  <script>
+    Swal.fire({
+      type: 'success',
+      title: 'İşlem Başarılı',
+      text: 'İçerik Başarıyla Kaydedildi!',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  </script>
+  <?php } ?>

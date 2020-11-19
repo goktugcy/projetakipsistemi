@@ -17,6 +17,20 @@ if (yetkikontrol()!="yetkili") {
 			
 			
 		</div>
+		<br>
+		<?php
+		
+		 $ip=$db->prepare("SELECT * FROM counter_ip ORDER BY counterip_id DESC");
+		 $ip->execute();
+		 $ipscek=$ip->fetch(PDO::FETCH_ASSOC);
+		 ?>
+		 		
+	 <form class="mx-1" action="islemler/islem.php" method="POST">
+                      <input type="hidden" name="ipsil" value="<?php echo $ipscek['counterip_id'] ?>">
+                      <button type="submit" name="ipsil" data-toggle="tooltip" title="İşlem Geri Alınamaz!" class="btn btn-danger">
+                    Tüm Logları Sil
+                      </button>
+                    </form>	
 		<div class="card-body">
 
 <div id="dataTables_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -26,38 +40,34 @@ if (yetkikontrol()!="yetkili") {
 <div class="table-responsive">
 
 	<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-	<button type="button" class="btn btn-outline btn-warning">Tümünü Sil</button>
+
 		<thead>
 			<tr>
 				<th>No</th>
 				<th>İp Adresi</th>
-				<th>Yetki</th>
 				<th>Tarih</th>
 			</tr>
 		</thead>
+			
 		<!--While döngüsü ile veritabanında ki verilerin tabloya çekilme işlemi giriş-->
 		<tbody>
 		 <?php
 		 $say=0;
 		 $ip=$db->prepare("SELECT * FROM counter_ip ORDER BY counterip_id DESC");
 		 $ip->execute();
+		 
 		 while ($ipcek=$ip->fetch(PDO::FETCH_ASSOC)) { $say++?>
 
 			 <tr>
 				<td><?php echo $say; ?></td>
 				<td><?php echo $ipcek['counterip_ip']; ?></td>
-				<td><?php echo $ipcek['counterip_yetki']; ?></td>
-				<td><?php echo $ipcek['tarih'];?></td>  <!-- EĞER DOĞRU SAATİ ALAMIYORSAN MYSQL SUNUCUDA ŞU KODU ÇALIŞTIR :  SET GLOBAL time_zone = 'Europe/Istanbul';
-																																																											SET time_zone = 'Europe/Istanbul';
-																																																											------>
-
-
-
-
-
-			</div>
+				<td><?php echo $ipcek['tarih'];?></td>  <!-- EĞER DOĞRU SAATİ ALAMIYORSAN MYSQL SUNUCUDA ŞU KODU ÇALIŞTIR :  SET GLOBAL time_zone = 'Europe/Istanbul';-->
+																		
+								</div>
+								
 		</td>
 	</tr>
+	
 <?php } ?>
 </tbody>
 <tfoot>
@@ -65,7 +75,6 @@ if (yetkikontrol()!="yetkili") {
 	<tr>
 		<th>No</th>
 		<th>İp Adresi</th>
-		<th>Yetki</th>
 		<th>Tarih</th>
 	</tr>
 
@@ -79,6 +88,7 @@ if (yetkikontrol()!="yetkili") {
 </div>
 </div>
 
+
 	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
 	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 	<script src="js/demo/datatables-demo.js"></script>
@@ -91,3 +101,26 @@ if (yetkikontrol()!="yetkili") {
 	<script src="vendor/datatables/buttons.print.min.js"></script>
 
 <?php include 'assets/footer.php'?>
+<?php if (@$_GET['durum']=="no")  {?>
+  <script>
+    Swal.fire({
+      type: 'error',
+      title: 'İşlem Başarısız',
+      text: 'Lütfen Tekrar Deneyin',
+      showConfirmButton: true,
+      confirmButtonText: 'Kapat'
+    })
+  </script>
+<?php } ?>
+
+<?php if (@$_GET['durum']=="ok")  {?>
+  <script>
+    Swal.fire({
+      type: 'success',
+      title: 'İşlem Başarılı',
+      text: 'Loglar Başarıyla Silindi!',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  </script>
+  <?php } ?>

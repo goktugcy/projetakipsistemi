@@ -134,21 +134,21 @@ echo ''.php_uname('m')."\n"; // output: "m: x86_64"
 
 	</div>
 </div>
-
-
+ 
 <div class="container-fluid p-2">
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<h5 class="m-0 font-weight-bold text-primary">Site Ayarları</h5>
 		</div>
 		<div class="card-body">
+		
 			<form action="islemler/islem.php" method="POST" enctype="multipart/form-data" data-parsley-validate>
 				<div class="form-row mb-3">
 					<div class="file-loading">
 						<input class="form-control" id="sitelogosu" name="site_logo" type="file">
 					</div>
 				</div>
-
+				
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label>Site Başlığı</label>
@@ -167,6 +167,13 @@ echo ''.php_uname('m')."\n"; // output: "m: x86_64"
 					<div class="form-group col-md-6">
 						<label>Site Anahtar Kelimeler</label>
 						<input type="text" required class="form-control" name="keywords" value="<?php echo $ayarcek['keywords'] ?>" placeholder="Anahtar Kelimeler (En fazla 50 kelime)">
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label>Site Sahibi</label>
+						<input type="text" required class="form-control" name="site_sahibi" value="<?php echo $ayarcek['site_sahibi'] ?>" placeholder="Site Sahibi">
 					</div>
 				</div>
 
@@ -209,7 +216,7 @@ echo ''.php_uname('m')."\n"; // output: "m: x86_64"
         }
     });
 	}
-</script>﻿
+</script>
 <?php include 'assets/footer.php' ?>
 
 <?php if (@$_GET['durum']=="no")  {?>
@@ -235,3 +242,6 @@ echo ''.php_uname('m')."\n"; // output: "m: x86_64"
 		})
 	</script>
 	<?php } ?>
+	
+
+	

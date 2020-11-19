@@ -672,6 +672,51 @@ if (isset($_POST['profilguncelle'])) {
 
     /*********************************************************/
 
-    
+    if (isset($_POST['logsil'])) {
+          if (yetkikontrol()!="yetkili") {
+            header("location:../index.php");
+            exit;
+          }
+          $sil=$db->prepare("DELETE from mailbox where id=:id");
+          $kontrol=$sil->execute(array(
+            'id' => guvenlik($_POST['id'])
+          ));
+
+          if ($kontrol) {
+
+            header("location:../mailbox?durum=ok");
+            exit;
+          } else {
+
+            header("location:../mailbox?durum=no");
+            exit;
+
+          }
+        }
+
+    /******************************************************/
+
+         if (isset($_POST['ipsil'])) {
+          if (yetkikontrol()!="yetkili") {
+            header("location:../index.php");
+            exit;
+          }
+          $ipsil=$db->prepare("DELETE from counter_ip where counterip_id=:counterip_id < 1000;");
+          $kontrol=$ipsil->execute(array(
+            'counterip_id' => guvenlik($_POST['counterip_id'])
+          ));
+
+          if ($kontrol) {
+
+            header("location:../log?durum=ok");
+            exit;
+          } else {
+
+            header("location:../log?durum=no");
+            exit;
+
+          }
+        }
+        
 
         ?>
