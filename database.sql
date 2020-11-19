@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: sql204.epizy.com
--- Üretim Zamanı: 16 Kas 2020, 19:54:33
+-- Üretim Zamanı: 19 Kas 2020, 07:16:20
 -- Sunucu sürümü: 5.6.48-88.0
 -- PHP Sürümü: 7.2.22
 
@@ -77,37 +77,6 @@ CREATE TABLE `counter_ip` (
   `tarih` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Tablo döküm verisi `counter_ip`
---
-
-INSERT INTO `counter_ip` (`counterip_id`, `counterip_ip`, `counterip_yetki`, `tarih`) VALUES
-(19, '85.98.21.195', 0, '2020-11-04 10:55:51'),
-(20, '46.106.60.43', 0, '2020-11-04 11:11:55'),
-(21, '46.221.45.43', 0, '2020-11-04 12:45:04'),
-(22, '46.221.45.43', 0, '2020-11-04 12:45:40'),
-(23, '46.221.45.43', 0, '2020-11-04 12:46:09'),
-(24, '46.106.60.43', 0, '2020-11-04 13:41:33'),
-(25, '5.181.233.162', 0, '2020-11-04 20:02:24'),
-(26, '46.106.36.217', 0, '2020-11-05 17:48:40'),
-(27, '107.181.177.138', 0, '2020-11-05 23:44:11'),
-(28, '46.106.36.217', 0, '2020-11-05 23:46:01'),
-(29, '176.55.154.254', 0, '2020-11-06 09:02:00'),
-(30, '85.98.19.17', 0, '2020-11-06 18:13:02'),
-(31, '176.55.104.240', 0, '2020-11-07 13:35:09'),
-(32, '176.54.83.183', 0, '2020-11-08 11:52:31'),
-(33, '85.98.19.17', 0, '2020-11-11 00:18:19'),
-(34, '85.98.19.17', 0, '2020-11-11 00:21:53'),
-(35, '176.55.31.0', 0, '2020-11-11 00:22:50'),
-(36, '85.98.19.17', 0, '2020-11-11 00:24:23'),
-(37, '85.98.19.17', 0, '2020-11-11 09:26:37'),
-(38, '176.55.102.201', 0, '2020-11-11 11:44:57'),
-(39, '85.98.19.17', 0, '2020-11-11 22:41:48'),
-(40, '85.98.19.17', 0, '2020-11-12 07:55:38'),
-(41, '176.55.75.241', 0, '2020-11-12 21:26:00'),
-(42, '85.98.19.17', 0, '2020-11-13 00:06:27'),
-(43, '85.98.19.17', 0, '2020-11-13 22:44:25');
-
 -- --------------------------------------------------------
 
 --
@@ -177,7 +146,7 @@ CREATE TABLE `kullanicilar` (
 --
 
 INSERT INTO `kullanicilar` (`kul_id`, `kul_isim`, `kul_mail`, `kul_sifre`, `kul_telefon`, `kul_unvan`, `kul_yetki`, `kul_logo`, `ip_adresi`, `session_mail`) VALUES
-(1, 'G&ouml;ktuğ Ceyhan ', 'goktugceyhan@gmail.com', '46c188f168665146be19f18b28f1b1e6', '0', 'Yazılımcı | Admin', 1, 'img/95421451173b6db5b6-dc90-4cbf-9915-99cf8f3a6998.jpeg', '85.98.19.17', '1f5809592edc05fac4848aadf425b223');
+(1, 'G&ouml;ktuğ Ceyhan ', 'goktugceyhan@gmail.com', '46c188f168665146be19f18b28f1b1e6', '0', 'Yazılımcı | Admin', 1, 'img/95421451173b6db5b6-dc90-4cbf-9915-99cf8f3a6998.jpeg', '85.98.19.17', '5745d993cc4b8625ca889b934733345c');
 
 -- --------------------------------------------------------
 
@@ -187,12 +156,21 @@ INSERT INTO `kullanicilar` (`kul_id`, `kul_isim`, `kul_mail`, `kul_sifre`, `kul_
 
 CREATE TABLE `mailbox` (
   `id` int(11) NOT NULL,
-  `ad` varchar(10) DEFAULT NULL,
-  `soyad` varchar(15) DEFAULT NULL,
-  `tel` varchar(50) DEFAULT NULL,
-  `mail` varchar(40) DEFAULT NULL,
-  `mesaj` varchar(500) DEFAULT NULL
+  `ad` varchar(10) NOT NULL,
+  `soyad` varchar(15) NOT NULL,
+  `tel` varchar(50) NOT NULL,
+  `mail` varchar(40) NOT NULL,
+  `mesaj` varchar(5000) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `mailbox`
+--
+
+INSERT INTO `mailbox` (`id`, `ad`, `soyad`, `tel`, `mail`, `mesaj`) VALUES
+(6, 'Gökay', 'Kolcuk', '09273683793', 'gokay@gmail.com', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.'),
+(5, 'Göktuğ', 'Ceyhan', '05512067962', 'goktugceyhan@gmail.com', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.'),
+(7, 'Buse', 'Ceyhan', '94858638374', 'boktay@gmail.com', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.');
 
 -- --------------------------------------------------------
 
@@ -344,7 +322,7 @@ ALTER TABLE `ayarlar`
 -- Tablo için AUTO_INCREMENT değeri `counter_ip`
 --
 ALTER TABLE `counter_ip`
-  MODIFY `counterip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `counterip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `hakkimizda`
@@ -368,7 +346,7 @@ ALTER TABLE `kullanicilar`
 -- Tablo için AUTO_INCREMENT değeri `mailbox`
 --
 ALTER TABLE `mailbox`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `proje`
