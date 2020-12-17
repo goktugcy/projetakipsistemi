@@ -15,9 +15,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="https://i.hizliresim.com/EDZnPf.png" alt="Logo" >
-  </a>
+
 
  
   <p align="center">
