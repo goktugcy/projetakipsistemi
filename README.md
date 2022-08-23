@@ -12,22 +12,6 @@
 
 
 
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-    <img src="https://i.hizliresim.com/EDZnPf.png" alt="Logo" >
-
-
- 
-  <p align="center">
-  GC WORKERS PROJE TAKİP SİSTEMİ
-
-    <a href="http://demo.goktugcy.rf.gd/">Demo Görüntüleo</a>
-    
-    <a href="https://github.com/goktugcy/projetakipsistemi/issues">Report Bug</a>
-    
-    <a href="https://github.com/goktugcy/projetakipsistemi/issues">Request Feature</a>
-  </p>
 
 
 
